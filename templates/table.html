@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Restaurant Tables</h2>
+
+{% for table in tables %}
+    <div class="item">
+        <h3>Table {{ table.number }}</h3>
+
+        {% if table.is_occupied %}
+            <p>Occupied</p>
+        {% else %}
+            <p>Available</p>
+            <a href="{% url 'add_order' table.id %}">Create Order</a>
+        {% endif %}
+    </div>
+{% empty %}
+    <p>No tables found.</p>
+{% endfor %}
+
+{% endblock %}

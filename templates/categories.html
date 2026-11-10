@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Categories</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Category name" required>
+    <button type="submit">Add Category</button>
+</form>
+
+{% for category in categories %}
+    <p>{{ category.id }} - {{ category.name }}</p>
+{% endfor %}
+
+{% endblock %}

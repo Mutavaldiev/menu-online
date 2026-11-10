@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>New Order - Table {{ table.number }}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Customer Name:</label>
+    <input type="text" name="customer_name" required>
+
+    <h3>Select Dishes</h3>
+
+    {% for dish in dishes %}
+        <div class="item">
+            <p>
+                {{ dish.id }} - {{ dish.name }} - {{ dish.price }}
+            </p>
+
+            <label>Quantity:</label>
+            <input type="number"
+                   name="dish_{{ dish.id }}"
+                   value="0"
+                   min="0">
+        </div>
+    {% empty %}
+        <p>No dishes available.</p>
+    {% endfor %}
+
+    <button type="submit">Create Order</button>
+</form>
+
+{% endblock %}

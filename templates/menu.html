@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Food Menu</h2>
+
+{% for category in categories %}
+    <h3>{{ category.name }}</h3>
+
+    {% for dish in dishes %}
+        {% if dish.category_id == category.id %}
+            <p>{{ dish.id }} - {{ dish.name }} - {{ dish.price }}</p>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+{% endblock %}

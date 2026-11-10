@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Menu</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<body>
+
+<h1>Online Menu</h1>
+
+<nav>
+    <a href="/menu/">Menu</a>
+    <a href="/categories/">Categories</a>
+    <a href="/add-products/">Add Dish</a>
+    <a href="/orders/">Orders</a>
+    <a href="/tables/">Tables</a>
+</nav>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
